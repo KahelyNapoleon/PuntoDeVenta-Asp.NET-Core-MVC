@@ -20,10 +20,20 @@ namespace PointOfSale.Controllers
         }
 
         // GET: Productos
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string BuscarNombre, string BuscarCategoria, string BuscarCodigoBarra)
         {
-            var applicationDbContext = _context.Productos.Include(p => p.Categoria);
-            return View(await applicationDbContext.ToListAsync());
+            if( _context.Productos == null)
+            {
+                return Problem("Entity Set 'ApplicationDbContext.Productos' is null");
+            }
+
+            var productos = from p in _context.Productos.Include(p => p.Categoria)
+                            where (String.IsNullOrEmpty(BuscarCategoria) || p.Categoria.Descripcion.ToUpper().Contains(BuscarCategoria.ToUpper()))
+                            && (String.IsNullOrEmpty(BuscarCodigoBarra) || p.CodigoBarra.ToUpper().Contains(BuscarCodigoBarra.ToUpper()))
+                            && (String.IsNullOrEmpty(BuscarNombre) || p.Nombre.ToUpper().Contains(BuscarNombre.ToUpper()))
+                            select p;
+
+            return View(await productos.ToListAsync());
         }
 
         // GET: Productos/Details/5
