@@ -26,44 +26,44 @@ namespace PointOfSale.Controllers
         }
 
         // GET: ControlPrecios/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+        //public async Task<IActionResult> Details(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            var controlPrecio = await _context.ControlPrecios
-                .FirstOrDefaultAsync(m => m.ControlPrecio1 == id);
-            if (controlPrecio == null)
-            {
-                return NotFound();
-            }
+        //    var controlPrecio = await _context.ControlPrecios
+        //        .FirstOrDefaultAsync(m => m.ControlPrecio1 == id);
+        //    if (controlPrecio == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return View(controlPrecio);
-        }
+        //    return View(controlPrecio);
+        //}
 
         // GET: ControlPrecios/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
+        //public IActionResult Create()
+        //{
+        //    return View();
+        //}
 
-        // POST: ControlPrecios/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ControlPrecio1,CodigoBarra,Nombre,Costo,PrecioVenta")] ControlPrecio controlPrecio)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(controlPrecio);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(controlPrecio);
-        }
+        //// POST: ControlPrecios/Create
+        //// To protect from overposting attacks, enable the specific properties you want to bind to.
+        //// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Create([Bind("ControlPrecio1,CodigoBarra,Nombre,Costo,PrecioVenta")] ControlPrecio controlPrecio)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        _context.Add(controlPrecio);
+        //        await _context.SaveChangesAsync();
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    return View(controlPrecio);
+        //}
 
         // GET: ControlPrecios/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -134,37 +134,37 @@ namespace PointOfSale.Controllers
         }
 
         // GET: ControlPrecios/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+        //public async Task<IActionResult> Delete(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            var controlPrecio = await _context.ControlPrecios
-                .FirstOrDefaultAsync(m => m.ControlPrecio1 == id);
-            if (controlPrecio == null)
-            {
-                return NotFound();
-            }
+        //    var controlPrecio = await _context.ControlPrecios
+        //        .FirstOrDefaultAsync(m => m.ControlPrecio1 == id);
+        //    if (controlPrecio == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return View(controlPrecio);
-        }
+        //    return View(controlPrecio);
+        //}
 
-        // POST: ControlPrecios/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var controlPrecio = await _context.ControlPrecios.FindAsync(id);
-            if (controlPrecio != null)
-            {
-                _context.ControlPrecios.Remove(controlPrecio);
-            }
+        //// POST: ControlPrecios/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> DeleteConfirmed(int id)
+        //{
+        //    var controlPrecio = await _context.ControlPrecios.FindAsync(id);
+        //    if (controlPrecio != null)
+        //    {
+        //        _context.ControlPrecios.Remove(controlPrecio);
+        //    }
 
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
+        //    await _context.SaveChangesAsync();
+        //    return RedirectToAction(nameof(Index));
+        //}
 
         private bool ControlPrecioExists(int id)
         {

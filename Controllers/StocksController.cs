@@ -26,44 +26,44 @@ namespace PointOfSale.Controllers
         }
 
         // GET: Stocks/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+        //public async Task<IActionResult> Details(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            var stock = await _context.Stocks
-                .FirstOrDefaultAsync(m => m.StockId == id);
-            if (stock == null)
-            {
-                return NotFound();
-            }
+        //    var stock = await _context.Stocks
+        //        .FirstOrDefaultAsync(m => m.StockId == id);
+        //    if (stock == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return View(stock);
-        }
+        //    return View(stock);
+        //}
 
         // GET: Stocks/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
+        //public IActionResult Create()
+        //{
+        //    return View();
+        //}
 
-        // POST: Stocks/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("StockId,CodigoBarra,Nombre,Cantidad")] Stock stock)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(stock);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(stock);
-        }
+        //// POST: Stocks/Create
+        //// To protect from overposting attacks, enable the specific properties you want to bind to.
+        //// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Create([Bind("StockId,CodigoBarra,Nombre,Cantidad")] Stock stock)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        _context.Add(stock);
+        //        await _context.SaveChangesAsync();
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    return View(stock);
+        //}
 
         // GET: Stocks/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -133,37 +133,37 @@ namespace PointOfSale.Controllers
         }
 
         // GET: Stocks/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+        //public async Task<IActionResult> Delete(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            var stock = await _context.Stocks
-                .FirstOrDefaultAsync(m => m.StockId == id);
-            if (stock == null)
-            {
-                return NotFound();
-            }
+        //    var stock = await _context.Stocks
+        //        .FirstOrDefaultAsync(m => m.StockId == id);
+        //    if (stock == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return View(stock);
-        }
+        //    return View(stock);
+        //}
 
-        // POST: Stocks/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var stock = await _context.Stocks.FindAsync(id);
-            if (stock != null)
-            {
-                _context.Stocks.Remove(stock);
-            }
+        //// POST: Stocks/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> DeleteConfirmed(int id)
+        //{
+        //    var stock = await _context.Stocks.FindAsync(id);
+        //    if (stock != null)
+        //    {
+        //        _context.Stocks.Remove(stock);
+        //    }
 
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
+        //    await _context.SaveChangesAsync();
+        //    return RedirectToAction(nameof(Index));
+        //}
 
         private bool StockExists(int id)
         {

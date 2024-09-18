@@ -110,6 +110,8 @@ namespace PointOfSale.Controllers
             return View(producto);
         }
 
+
+
         // GET: Productos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -123,7 +125,7 @@ namespace PointOfSale.Controllers
             {
                 return NotFound();
             }
-            ViewData["CategoriaId"] = new SelectList(_context.Categoria, "CategoriaId", "CategoriaId", producto.CategoriaId);
+            ViewData["CategoriaId"] = new SelectList(_context.Categoria, "CategoriaId", "Descripcion", producto.CategoriaId);
             return View(producto);
         }
 
@@ -159,7 +161,7 @@ namespace PointOfSale.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoriaId"] = new SelectList(_context.Categoria, "CategoriaId", "CategoriaId", producto.CategoriaId);
+            ViewData["CategoriaId"] = new SelectList(_context.Categoria, "CategoriaId", "Descripcion", producto.CategoriaId);
             return View(producto);
         }
 
